@@ -1,0 +1,13 @@
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#profile {
+  max-width: 500px;
+}
+
+#profile-title {
+  text-align: center;
+}
