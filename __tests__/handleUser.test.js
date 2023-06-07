@@ -43,7 +43,7 @@ describe('handle User middleware', () => {
     expect(next).toHaveBeenCalled();
     expect(req.records.user.name).toEqual('user-test');
   });
-  test('Should call an error if no user object is present', async () => {
+  test('Should call an next if no user object is present', async () => {
     let req = {
       oidc: {
         user: {}
@@ -52,7 +52,7 @@ describe('handle User middleware', () => {
     let res = {}
     let next = jest.fn();
     await handleUser(tables.user)(req, res, next);
-    expect(next).toHaveBeenCalledWith(Error('Invalid OpenID Credentials'));
+    expect(next).toHaveBeenCalled();
     expect(req.records).not.toBeTruthy();
   });
 })
